@@ -47,7 +47,7 @@ export default class Personal extends Component {
                   className="form-control"
                   id="phoneNumber"
                   maxLength="15"
-                  placeholder="12 34 567 889"
+                  placeholder="1234567889"
                   onChange={handleChange}
                   value={phoneNumber}
                 />
