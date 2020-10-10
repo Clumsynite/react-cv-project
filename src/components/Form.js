@@ -1,3 +1,4 @@
+import { findAllByDisplayValue } from "@testing-library/react";
 import React, { Component } from "react";
 import PersonalForm from "./Forms/Personal";
 import PersonalTemplate from "./Templates/Personal";
@@ -20,6 +21,7 @@ export default class Form extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.savePersonal = this.savePersonal.bind(this);
+    this.editPersonal = this.editPersonal.bind(this);
   }
 
   handleChange(e) {
@@ -28,6 +30,11 @@ export default class Form extends Component {
   }
   savePersonal(e) {
     e.preventDefault();
+    this.setState({ renderPersonal: true });
+  }
+  editPersonal(e) {
+    e.preventDefault();
+    this.setState({ renderPersonal: false });
   }
   render() {
     const {
@@ -45,8 +52,25 @@ export default class Form extends Component {
     } = this.state;
     return (
       <div className="Form">
-        <PersonalForm handleChange={this.handleChange} />
-        {renderPersonal && <PersonalTemplate details={firstname, lastname,email, address}/>}
+        {!renderPersonal && (
+          <PersonalForm
+            handleChange={this.handleChange}
+            handleClick={this.savePersonal}
+            firstname={firstname}
+            lastname={lastname}
+            email={email}
+            address={address}
+          />
+        )}
+        {renderPersonal && (
+          <PersonalTemplate
+            firstname={firstname}
+            lastname={lastname}
+            email={email}
+            address={address}
+            edit={this.editPersonal}
+          />
+        )}
       </div>
     );
   }
