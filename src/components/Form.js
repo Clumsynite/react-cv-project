@@ -75,11 +75,15 @@ export default class Form extends Component {
             edit={this.editPersonal}
           />
         )}
-        <div className="d-flex flex-row mt-3">
-          {!renderEducation && <EducationForm education={education} />}
-          {renderEducation && <EducationTemplate education={education} />}
-          {!renderExperience && <ExperienceForm experience={experience} />}
-          {renderExperience && <ExperienceTemplate experience={experience} />}
+        <div className="d-flex mt-3">
+          <div className="flex-fill mr-1">
+            {!renderEducation && <EducationForm education={education} />}
+            {renderEducation && <EducationTemplate education={education} />}
+          </div>
+          <div className="flex-fill ml-1">
+            {!renderExperience && <ExperienceForm experience={experience} />}
+            {renderExperience && <ExperienceTemplate experience={experience} />}
+          </div>
         </div>
       </div>
     );
