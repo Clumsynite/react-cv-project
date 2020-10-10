@@ -1,4 +1,3 @@
-import { findAllByDisplayValue } from "@testing-library/react";
 import React, { Component } from "react";
 import PersonalForm from "./Forms/Personal";
 import PersonalTemplate from "./Templates/Personal";
@@ -9,8 +8,8 @@ export default class Form extends Component {
       firstname: "",
       lastname: "",
       email: "",
-      description: "",
       address: "",
+      phoneNumber: "",
       Languages: [],
       projects: [],
       education: [],
@@ -41,7 +40,7 @@ export default class Form extends Component {
       firstname,
       lastname,
       email,
-      description,
+      phoneNumber,
       address,
       Languages,
       projects,
@@ -60,6 +59,7 @@ export default class Form extends Component {
             lastname={lastname}
             email={email}
             address={address}
+            phoneNumber={phoneNumber}
           />
         )}
         {renderPersonal && (
@@ -68,6 +68,7 @@ export default class Form extends Component {
             lastname={lastname}
             email={email}
             address={address}
+            phoneNumber={phoneNumber}
             edit={this.editPersonal}
           />
         )}
