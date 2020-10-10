@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 
 export default class Personal extends Component {
-  constructor() {
-    super();
-  }
   render() {
-    const { handleChange, handleClick, firstname, lastname, email, address } = this.props;
+    const {
+      handleChange,
+      handleClick,
+      firstname,
+      lastname,
+      email,
+      address,
+      phoneNumber,
+    } = this.props;
     return (
       <div className="Personal">
         <div className="form-row">
@@ -32,16 +37,30 @@ export default class Personal extends Component {
             />
           </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email ID</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="abc@email.com"
-            onChange={handleChange}
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <input
+              type="String"
+              className="form-control"
+              id="phoneNumber"
+              maxLength="15"
+              placeholder="12 34 567 889"
+              onChange={handleChange}
+              value={phoneNumber}
+            />
+          </div>
+          <div className="form-group col-md-6">
+            <label htmlFor="email">Email ID</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="abc@email.com"
+              onChange={handleChange}
               value={email}
-          />
+            />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="address">Address</label>
@@ -51,10 +70,14 @@ export default class Personal extends Component {
             id="address"
             placeholder="1234 Main St"
             onChange={handleChange}
-              value={address}
+            value={address}
           />
         </div>
-        <button type="submit" className="btn btn-outline-primary btn-block" onClick={handleClick}>
+        <button
+          type="submit"
+          className="btn btn-outline-primary btn-block"
+          onClick={handleClick}
+        >
           Add
         </button>
       </div>
