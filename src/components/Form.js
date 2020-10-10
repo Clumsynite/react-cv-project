@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PersonalForm from "./Forms/Personal";
 import PersonalTemplate from "./Templates/Personal";
+import EducationForm from "./Forms/Education";
+import EducationTemplate from "./Templates/Education";
 export default class Form extends Component {
   constructor() {
     super();
@@ -10,12 +12,10 @@ export default class Form extends Component {
       email: "",
       address: "",
       phoneNumber: "",
-      Languages: [],
-      projects: [],
       education: [],
-      certificates: [],
       experience: [],
       renderPersonal: false,
+      renderEducation: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -42,12 +42,10 @@ export default class Form extends Component {
       email,
       phoneNumber,
       address,
-      Languages,
-      projects,
       education,
-      certificates,
       experience,
       renderPersonal,
+      renderEducation,
     } = this.state;
     return (
       <div className="Form">
@@ -72,6 +70,10 @@ export default class Form extends Component {
             edit={this.editPersonal}
           />
         )}
+        <div className="d-flex flex-row mt-3">
+          {!renderEducation && <EducationForm />}
+          {renderEducation && <EducationTemplate />}
+        </div>
       </div>
     );
   }
