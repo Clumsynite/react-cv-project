@@ -5,7 +5,7 @@ export default class Personal extends Component {
     super();
   }
   render() {
-    const { handleChange, savePersonal } = this.props;
+    const { handleChange, handleClick, firstname, lastname, email, address } = this.props;
     return (
       <div className="Personal">
         <div className="form-row">
@@ -17,6 +17,7 @@ export default class Personal extends Component {
               id="firstname"
               placeholder="John"
               onChange={handleChange}
+              value={firstname}
             />
           </div>
           <div className="form-group col-md-6">
@@ -27,6 +28,7 @@ export default class Personal extends Component {
               id="lastname"
               placeholder="Doe"
               onChange={handleChange}
+              value={lastname}
             />
           </div>
         </div>
@@ -38,6 +40,7 @@ export default class Personal extends Component {
             id="email"
             placeholder="abc@email.com"
             onChange={handleChange}
+              value={email}
           />
         </div>
         <div className="form-group">
@@ -48,9 +51,10 @@ export default class Personal extends Component {
             id="address"
             placeholder="1234 Main St"
             onChange={handleChange}
+              value={address}
           />
         </div>
-        <button type="submit" className="btn btn-primary" oncClick={savePersonal}>
+        <button type="submit" className="btn btn-outline-primary btn-block" onClick={handleClick}>
           Add
         </button>
       </div>
