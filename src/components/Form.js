@@ -3,6 +3,9 @@ import PersonalForm from "./Forms/Personal";
 import PersonalTemplate from "./Templates/Personal";
 import EducationForm from "./Forms/Education";
 import EducationTemplate from "./Templates/Education";
+import ExperienceForm from "./Forms/Experience";
+import ExperienceTemplate from "./Templates/Experience";
+
 export default class Form extends Component {
   constructor() {
     super();
@@ -16,6 +19,7 @@ export default class Form extends Component {
       experience: [],
       renderPersonal: false,
       renderEducation: false,
+      renderExperience: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,6 +50,7 @@ export default class Form extends Component {
       experience,
       renderPersonal,
       renderEducation,
+      renderExperience,
     } = this.state;
     return (
       <div className="Form">
@@ -71,8 +76,10 @@ export default class Form extends Component {
           />
         )}
         <div className="d-flex flex-row mt-3">
-          {!renderEducation && <EducationForm />}
-          {renderEducation && <EducationTemplate />}
+          {!renderEducation && <EducationForm education={education} />}
+          {renderEducation && <EducationTemplate education={education} />}
+          {!renderExperience && <ExperienceForm experience={experience} />}
+          {renderExperience && <ExperienceTemplate experience={experience} />}
         </div>
       </div>
     );
