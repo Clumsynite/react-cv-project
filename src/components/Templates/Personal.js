@@ -36,16 +36,14 @@ export default class Personal extends Component {
                 <i className="material-icons" style={{ color: "black" }}>
                   smartphone
                 </i>
-                <h5 className="card-subtitle text-muted">
-                  {phoneNumber}
-                </h5>
+                <h5 className="card-subtitle text-muted">{phoneNumber}</h5>
               </div>
             </div>
             <div className="mt-2 d-flex align-items-center ">
               <i className="material-icons" style={{ color: "black" }}>
                 home
               </i>
-              <p className="card-text ml-1">  {address}</p>
+              <p className="card-text ml-1"> {address}</p>
             </div>
           </div>
         </div>
