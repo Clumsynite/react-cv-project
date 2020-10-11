@@ -62,13 +62,14 @@ export default class Education extends Component {
                   id="end"
                   name="end"
                   title="Date when you Finished this course"
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
             <button
               type="button"
               className="btn btn-outline-info btn-block"
-              onClick={addMore}
+              onClick={() => addMore(this.state)}
             >
               Add More
             </button>
