@@ -80,7 +80,7 @@ export default class Personal extends Component {
               className="btn btn-outline-primary btn-block"
               onClick={handleClick}
             >
-              Add
+              Save
             </button>
           </div>
         </div>
