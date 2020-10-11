@@ -42,10 +42,10 @@ export default class Form extends Component {
   isEmpty(elem) {
     return elem.trim().length < 1;
   }
-async savePersonal(e) {
+  async savePersonal(e) {
     e.preventDefault();
     await this.clearErrors();
-    const emailRegex = /\S+@\S+\.\S+/
+    const emailRegex = /\S+@\S+\.\S+/;
     const { firstname, lastname, phoneNumber, email, address } = this.state;
     if (this.isEmpty(firstname)) {
       this.setError("Firstname can't be empty");
@@ -63,7 +63,7 @@ async savePersonal(e) {
       this.setError("Email ID can't be empty");
       return;
     }
-    if(!emailRegex.test(email)){
+    if (!emailRegex.test(email)) {
       this.setError("Invalid Email Address");
       return;
     }
@@ -82,6 +82,10 @@ async savePersonal(e) {
   }
   saveEducation(e) {
     e.preventDefault();
+    if (this.state.education.length < 1) {
+      this.setError("Click the Add button to add you education details");
+      return;
+    }
     this.setState({ renderEducation: true });
   }
   addExperience(data) {
@@ -110,7 +114,6 @@ async savePersonal(e) {
     } = this.state;
     return (
       <div className="Form container">
-        {errors.length > 0 && <Errors errors={errors} />}
         {!renderPersonal && (
           <PersonalForm
             handleChange={this.handleChange}
@@ -132,6 +135,7 @@ async savePersonal(e) {
             edit={this.editPersonal}
           />
         )}
+        {errors.length > 0 && <Errors errors={errors} />}
         <div className="d-flex mt-3">
           <div className="flex-fill mr-1">
             {!renderEducation && (
