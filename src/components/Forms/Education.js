@@ -15,7 +15,7 @@ export default class Education extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    const { handleClick } = this.props;
+    const { addMore, handleClick } = this.props;
     return (
       <div className="Education">
         <div className="card">
@@ -66,11 +66,18 @@ export default class Education extends Component {
               </div>
             </div>
             <button
+              type="button"
+              className="btn btn-outline-info btn-block"
+              onClick={addMore}
+            >
+              Add More
+            </button>
+            <button
               type="submit"
               className="btn btn-outline-primary btn-block"
               onClick={handleClick}
             >
-              Add
+              Save
             </button>
           </div>
         </div>
