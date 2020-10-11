@@ -37,7 +37,7 @@ export default class Experience extends Component {
                 type="text"
                 className="form-control"
                 id="position"
-                name="position"
+                name="title"
                 placeholder="Junior/Senior Developer"
                 title="Position"
                 onChange={this.handleChange}
