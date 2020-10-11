@@ -12,7 +12,7 @@ export default class Personal extends Component {
       phoneNumber,
     } = this.props;
     return (
-      <div className="Personal">
+      <div className="Personal mb-2">
         <div className="card">
           <div className="card-body bg-light">
             <div className="form-row">
