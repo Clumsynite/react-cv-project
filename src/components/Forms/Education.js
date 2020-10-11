@@ -1,49 +1,77 @@
 import React, { Component } from "react";
 
 export default class Education extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      title: "",
+      start: "",
+      end: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
   render() {
+    const { handleClick } = this.props;
     return (
       <div className="Education">
         <div className="card">
           <div className="card-body bg-light">
-            <div class="form-group">
-              <label for="name">School Name</label>
+            <div className="form-group">
+              <label htmlFor="schoolName">School Name</label>
               <input
                 type="text"
-                class="form-control"
-                id="name"
+                className="form-control"
+                id="schoolName"
+                name="name"
                 placeholder="Tilak Maharashtra Vidyapeeth"
+                onChange={this.handleChange}
               />
             </div>
-            <div class="form-group">
-              <label for="degree">Title of Study</label>
+            <div className="form-group">
+              <label htmlFor="title">Title of Study</label>
               <input
                 type="text"
-                class="form-control"
-                id="degree"
-                placeholder="Certification/Degree for? Ex. BCA"
+                className="form-control"
+                id="title"
+                name="title"
+                placeholder="Certification/title for? Ex. BCA"
+                onChange={this.handleChange}
               />
             </div>
             <div className="form-row">
-              <div class="form-group col-md-6">
-                <label for="start">Start Date</label>
+              <div className="form-group col-md-6">
+                <label htmlFor="start">Start Date</label>
                 <input
                   type="date"
-                  class="form-control"
+                  className="form-control"
                   id="start"
+                  name="start"
                   title="Date when you Started this course"
+                  onChange={this.handleChange}
                 />
               </div>
-              <div class="form-group col-md-6">
-                <label for="end">End Date</label>
+              <div className="form-group col-md-6">
+                <label htmlFor="end">End Date</label>
                 <input
                   type="date"
-                  class="form-control"
+                  className="form-control"
                   id="end"
+                  name="end"
                   title="Date when you Finished this course"
                 />
               </div>
             </div>
+            <button
+              type="submit"
+              className="btn btn-outline-primary btn-block"
+              onClick={handleClick}
+            >
+              Add
+            </button>
           </div>
         </div>
       </div>
