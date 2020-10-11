@@ -126,7 +126,7 @@ export default class Education extends Component {
               className="btn btn-outline-info btn-block"
               onClick={this.addDetails}
             >
-              Add More
+              Add
             </button>
             <button
               type="submit"
