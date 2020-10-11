@@ -5,7 +5,7 @@ export default class Education extends Component {
     const { education, addMore } = this.props;
     const listEducation = education.map((school, index) => {
       return (
-        <div key={index} className="card bg-light">
+        <div key={index} className="card bg-light mb-1">
           <div className="card-body">
             <h4 className="card-title">
               <i className="material-icons">business</i>
@@ -35,7 +35,7 @@ export default class Education extends Component {
           {listEducation}
           <div className="card-footer">
             <button
-              className="btn btn-outline-primary btn-block"
+              className="btn btn-info btn-block"
               onClick={addMore}
             >
               Add More
