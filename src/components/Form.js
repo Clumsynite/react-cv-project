@@ -29,6 +29,7 @@ export default class Form extends Component {
     this.editPersonal = this.editPersonal.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.saveEducation = this.saveEducation.bind(this);
+    this.moreEducation = this.moreEducation.bind(this)
     this.addExperience = this.addExperience.bind(this);
     this.isEmpty = this.isEmpty.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
@@ -88,6 +89,10 @@ export default class Form extends Component {
     }
     this.setState({ renderEducation: true });
   }
+  moreEducation(e) {
+    e.preventDefault()
+    this.setState({renderEducation: false})
+  }
   addExperience(data) {
     this.setState({ experience: this.state.education.concat(data) });
   }
@@ -145,7 +150,7 @@ export default class Form extends Component {
                 handleClick={this.saveEducation}
               />
             )}
-            {renderEducation && <EducationTemplate education={education} />}
+            {renderEducation && <EducationTemplate education={education} addMore={this.moreEducation} />}
           </div>
           <div className="flex-fill ml-1">
             {!renderExperience && (
