@@ -25,6 +25,8 @@ export default class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.savePersonal = this.savePersonal.bind(this);
     this.editPersonal = this.editPersonal.bind(this);
+    this.addEducation = this.addEducation.bind(this)
+    this.addExperience = this.addExperience.bind(this)
   }
 
   handleChange(e) {
@@ -39,6 +41,13 @@ export default class Form extends Component {
     e.preventDefault();
     this.setState({ renderPersonal: false });
   }
+  addEducation(data){
+    this.setState({education: this.state.education.concat(data)})
+  }
+  addExperience(data){
+    this.setState({experience: this.state.education.concat(data)})
+  }
+
   render() {
     const {
       firstname,
@@ -77,11 +86,12 @@ export default class Form extends Component {
         )}
         <div className="d-flex mt-3">
           <div className="flex-fill mr-1">
-            {!renderEducation && <EducationForm education={education} />}
+            {!renderEducation && <EducationForm education={education} addMore={this.addEducation}/>}
             {renderEducation && <EducationTemplate education={education} />}
           </div>
           <div className="flex-fill ml-1">
-            {!renderExperience && <ExperienceForm experience={experience} />}
+            {!renderExperience && <ExperienceForm experience={experience}
+            addMore={this.addExperience} />}
             {renderExperience && <ExperienceTemplate experience={experience} />}
           </div>
         </div>
