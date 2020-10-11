@@ -82,7 +82,7 @@ export default class Experience extends Component {
             <button
               type="button"
               className="btn btn-outline-info btn-block"
-              onClick={addMore}
+              onClick={() => addMore(this.state)}
             >
               Add More
             </button>
