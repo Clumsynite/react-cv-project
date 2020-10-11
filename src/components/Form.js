@@ -142,7 +142,7 @@ export default class Form extends Component {
           />
         )}
         {errors.length > 0 && <Errors errors={errors} />}
-        <div className="d-flex mt-3">
+        <div className="d-flex mt-3 flex-wrap">
           <div className="flex-fill mr-1">
             {!renderEducation && (
               <EducationForm
