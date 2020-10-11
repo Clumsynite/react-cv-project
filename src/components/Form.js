@@ -81,8 +81,9 @@ export default class Form extends Component {
   addEducation(data) {
     this.setState({ education: this.state.education.concat(data) });
   }
-  saveEducation(e) {
+  async saveEducation(e) {
     e.preventDefault();
+    await this.clearErrors()
     if (this.state.education.length < 1) {
       this.setError("Click the Add button to add you education details");
       return;
