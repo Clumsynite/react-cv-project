@@ -27,7 +27,7 @@ export default class Personal extends Component {
           </div>
           <div className="card-body bg-light">
             <h5 className="card-title">{`${firstname} ${lastname}`}</h5>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-wrap">
               <div className="d-flex align-items-center">
                 <i className="material-icons">email</i>
                 <h5 className="card-subtitle text-muted ml-1"> {email}</h5>
