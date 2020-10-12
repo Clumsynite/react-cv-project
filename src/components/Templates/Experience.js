@@ -18,13 +18,17 @@ export default class Experience extends Component {
               Description: {office.desc}
             </h6>
             <div className="d-flex justify-content-between">
-              <div className="card-text">
-                <i className="material-icons">date_range</i> Started on:{" "}
-                {office.start}
+              <div className="card-text d-flex">
+                <div>
+                  <i className="material-icons mt-1">date_range</i>
+                </div>
+                <div className="mt-1"> Started on: {office.start}</div>
               </div>
-              <div className="card-text">
-                <i className="material-icons">date_range</i> Finished on:{" "}
-                {office.end}
+              <div className="card-text d-flex">
+                <div>
+                  <i className="material-icons mt-1">date_range</i>
+                </div>
+                <div className="mt-1"> Finished on: {office.end}</div>
               </div>
             </div>
           </div>
