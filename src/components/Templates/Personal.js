@@ -12,11 +12,11 @@ export default class Personal extends Component {
     } = this.props;
     return (
       <div className="Personal">
-        <div className="card w-75 mx-auto">
-          <div className="card-header d-flex justify-content-between align-items-center">
+        <div className="card bg-dark">
+          <div className="card-header d-flex justify-content-between align-items-center text-white">
             <h5>Personal Details</h5>
             <button
-              className="btn btn-outline-primary btn-sm"
+              className="btn btn-primary btn-sm"
               onClick={edit}
               title="Edit Section"
             >
@@ -25,7 +25,7 @@ export default class Personal extends Component {
               </i>
             </button>
           </div>
-          <div className="card-body">
+          <div className="card-body bg-light">
             <h5 className="card-title">{`${firstname} ${lastname}`}</h5>
             <div className="d-flex justify-content-between">
               <div className="d-flex align-items-center">
