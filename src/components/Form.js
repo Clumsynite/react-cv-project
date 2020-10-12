@@ -139,7 +139,16 @@ export default class Form extends Component {
     }
   }
   addExperience(data) {
-    this.setState({ experience: this.state.experience.concat(data) });
+    this.setState({
+      experience: this.state.experience.concat(data),
+      updateExperience: {
+        name: "",
+        title: "",
+        desc: "",
+        start: "",
+        end: "",
+      },
+    });
   }
   async saveExperience(e) {
     e.preventDefault();
