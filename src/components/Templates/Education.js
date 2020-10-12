@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Education extends Component {
   render() {
-    const { education, addMore } = this.props;
+    const { education, addMore, edit, remove } = this.props;
     const listEducation = education.map((school, index) => {
       return (
         <div key={index} className="card bg-light mb-1">
@@ -25,6 +25,22 @@ export default class Education extends Component {
               </div>
             </div>
           </div>
+          <div className="card-footer d-flex flex-wrap">
+            <button
+              className="btn btn-outline-primary flex-fill mr-2"
+              onClick={edit}
+              data-index={index}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-outline-danger flex-fill ml-2"
+              onClick={remove}
+              data-index={index}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       );
     });
@@ -34,10 +50,7 @@ export default class Education extends Component {
           <div className="card-header text-white ">Education</div>
           {listEducation}
           <div className="card-footer">
-            <button
-              className="btn btn-info btn-block"
-              onClick={addMore}
-            >
+            <button className="btn btn-info btn-block" onClick={addMore}>
               Add More
             </button>
           </div>
