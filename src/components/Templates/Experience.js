@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Experience extends Component {
   render() {
-    const { experience, addMore } = this.props;
+    const { experience, addMore, edit, remove } = this.props;
     const listExperience = experience.map((office, index) => {
       return (
         <div key={index} className="card bg-light mb-1">
@@ -27,6 +27,22 @@ export default class Experience extends Component {
                 {office.end}
               </div>
             </div>
+          </div>
+          <div className="card-footer d-flex flex-wrap">
+            <button
+              className="btn btn-outline-primary flex-fill mr-2"
+              onClick={edit}
+              data-index={index}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-outline-danger flex-fill ml-2"
+              onClick={remove}
+              data-index={index}
+            >
+              Delete
+            </button>
           </div>
         </div>
       );
