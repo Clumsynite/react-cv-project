@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Errors from "../Errors";
 export default class Experience extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "",
-      title: "",
-      desc: "",
-      start: "",
-      end: "",
+      name: this.props.experience.name,
+      title: this.props.experience.title,
+      desc: this.props.experience.title,
+      start: this.props.experience.start,
+      end: this.props.experience.end,
       errors: [],
     };
     this.handleChange = this.handleChange.bind(this);
