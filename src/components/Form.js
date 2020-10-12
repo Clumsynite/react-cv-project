@@ -143,7 +143,7 @@ export default class Form extends Component {
         )}
         {errors.length > 0 && <Errors errors={errors} />}
         <div className="d-flex mt-3 flex-wrap">
-          <div className="flex-fill mr-1">
+          <div className="flex-fill mb-2">
             {!renderEducation && (
               <EducationForm
                 education={education}
@@ -153,7 +153,7 @@ export default class Form extends Component {
             )}
             {renderEducation && <EducationTemplate education={education} addMore={this.moreEducation} />}
           </div>
-          <div className="flex-fill ml-1">
+          <div className="flex-fill">
             {!renderExperience && (
               <ExperienceForm
                 experience={experience}
