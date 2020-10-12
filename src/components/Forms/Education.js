@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Errors from "../Errors";
 export default class Education extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "",
-      title: "",
-      start: "",
-      end: "",
+      name: this.props.education.name,
+      title: this.props.education.title,
+      start: this.props.education.start,
+      end: this.props.education.end,
       errors: [],
     };
     this.handleChange = this.handleChange.bind(this);
