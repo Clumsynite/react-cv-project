@@ -15,13 +15,17 @@ export default class Education extends Component {
               <strong>Title:</strong> {school.title}
             </h6>
             <div className="d-flex justify-content-between">
-              <div className="card-text">
-                <i className="material-icons">date_range</i> Started on:{" "}
-                {school.start}
+              <div className="card-text d-flex">
+                <div>
+                  <i className="material-icons mt-1">date_range</i>
+                </div>
+                <div className="mt-1"> Started on: {school.start}</div>
               </div>
-              <div className="card-text">
-                <i className="material-icons">date_range</i> Finished on:{" "}
-                {school.end}
+              <div className="card-text d-flex">
+                <div>
+                  <i className="material-icons mt-1">date_range</i>
+                </div>
+                <div className="mt-1"> Finished on: {school.end}</div>
               </div>
             </div>
           </div>
