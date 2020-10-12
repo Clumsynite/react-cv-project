@@ -30,6 +30,8 @@ export default class Form extends Component {
     this.addEducation = this.addEducation.bind(this);
     this.saveEducation = this.saveEducation.bind(this);
     this.moreEducation = this.moreEducation.bind(this);
+    this.editEducation = this.editEducation.bind(this);
+    this.removeEducation = this.removeEducation.bind(this);
     this.addExperience = this.addExperience.bind(this);
     this.saveExperience = this.saveExperience.bind(this);
     this.moreExperience = this.moreExperience.bind(this);
@@ -96,6 +98,17 @@ export default class Form extends Component {
     e.preventDefault();
     this.setState({ renderEducation: false });
   }
+  editEducation() {}
+  removeEducation(e) {
+    e.preventDefault();
+    const index = e.target.getAttribute("data-index");
+    const educationArray = this.state.education;
+    educationArray.splice(index, 1);
+    this.setState({ education: educationArray });
+    if (this.state.education.length < 1) {
+      this.setState({ renderEducation: false });
+    }
+  }
   addExperience(data) {
     this.setState({ experience: this.state.experience.concat(data) });
   }
@@ -109,8 +122,8 @@ export default class Form extends Component {
     this.setState({ renderExperience: true });
   }
   moreExperience(e) {
-    e.preventDefault()
-    this.setState({renderExperience: false})
+    e.preventDefault();
+    this.setState({ renderExperience: false });
   }
   clearErrors() {
     this.setState({ errors: [] });
@@ -170,6 +183,8 @@ export default class Form extends Component {
               <EducationTemplate
                 education={education}
                 addMore={this.moreEducation}
+                edit={this.editEducation}
+                remove={this.removeEducation}
               />
             )}
           </div>
@@ -181,7 +196,12 @@ export default class Form extends Component {
                 handleClick={this.saveExperience}
               />
             )}
-            {renderExperience && <ExperienceTemplate experience={experience} addMore={this.moreExperience}/>}
+            {renderExperience && (
+              <ExperienceTemplate
+                experience={experience}
+                addMore={this.moreExperience}
+              />
+            )}
           </div>
         </div>
       </div>
