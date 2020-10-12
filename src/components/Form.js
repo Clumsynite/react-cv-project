@@ -29,8 +29,9 @@ export default class Form extends Component {
     this.editPersonal = this.editPersonal.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.saveEducation = this.saveEducation.bind(this);
-    this.moreEducation = this.moreEducation.bind(this)
+    this.moreEducation = this.moreEducation.bind(this);
     this.addExperience = this.addExperience.bind(this);
+    this.saveExperience = this.saveExperience.bind(this);
     this.isEmpty = this.isEmpty.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
     this.setError = this.setError.bind(this);
@@ -83,19 +84,28 @@ export default class Form extends Component {
   }
   async saveEducation(e) {
     e.preventDefault();
-    await this.clearErrors()
+    await this.clearErrors();
     if (this.state.education.length < 1) {
-      this.setError("Click the Add button to add you education details");
+      this.setError("Click the Add button to add your Education details");
       return;
     }
     this.setState({ renderEducation: true });
   }
   moreEducation(e) {
-    e.preventDefault()
-    this.setState({renderEducation: false})
+    e.preventDefault();
+    this.setState({ renderEducation: false });
   }
   addExperience(data) {
-    this.setState({ experience: this.state.education.concat(data) });
+    this.setState({ experience: this.state.experience.concat(data) });
+  }
+  async saveExperience(e) {
+    e.preventDefault();
+    await this.clearErrors();
+    if (this.state.experience.length < 1) {
+      this.setError("Click the Add button to add your Experience details");
+      return;
+    }
+    this.setState({ renderExperience: true });
   }
   clearErrors() {
     this.setState({ errors: [] });
@@ -151,13 +161,19 @@ export default class Form extends Component {
                 handleClick={this.saveEducation}
               />
             )}
-            {renderEducation && <EducationTemplate education={education} addMore={this.moreEducation} />}
+            {renderEducation && (
+              <EducationTemplate
+                education={education}
+                addMore={this.moreEducation}
+              />
+            )}
           </div>
           <div className="flex-fill">
             {!renderExperience && (
               <ExperienceForm
                 experience={experience}
                 addMore={this.addExperience}
+                handleClick={this.saveExperience}
               />
             )}
             {renderExperience && <ExperienceTemplate experience={experience} />}
