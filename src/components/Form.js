@@ -32,6 +32,7 @@ export default class Form extends Component {
     this.moreEducation = this.moreEducation.bind(this);
     this.addExperience = this.addExperience.bind(this);
     this.saveExperience = this.saveExperience.bind(this);
+    this.moreExperience = this.moreExperience.bind(this);
     this.isEmpty = this.isEmpty.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
     this.setError = this.setError.bind(this);
@@ -107,6 +108,10 @@ export default class Form extends Component {
     }
     this.setState({ renderExperience: true });
   }
+  moreExperience(e) {
+    e.preventDefault()
+    this.setState({renderExperience: false})
+  }
   clearErrors() {
     this.setState({ errors: [] });
   }
@@ -176,7 +181,7 @@ export default class Form extends Component {
                 handleClick={this.saveExperience}
               />
             )}
-            {renderExperience && <ExperienceTemplate experience={experience} />}
+            {renderExperience && <ExperienceTemplate experience={experience} addMore={this.moreExperience}/>}
           </div>
         </div>
       </div>
