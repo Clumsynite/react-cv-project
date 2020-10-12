@@ -132,6 +132,13 @@ export default class Form extends Component {
   }
   removeExperience(e) {
     e.preventDefault();
+    const index = e.target.getAttribute("data-index");
+    const experienceArray = this.state.experience;
+    experienceArray.splice(index, 1);
+    this.setState({ experience: experienceArray });
+    if (this.state.experience.length < 1) {
+      this.setState({ renderExperience: false });
+    }
   }
   clearErrors() {
     this.setState({ errors: [] });
@@ -208,8 +215,8 @@ export default class Form extends Component {
               <ExperienceTemplate
                 experience={experience}
                 addMore={this.moreExperience}
-                edit={this.editEducation}
-                remove={this.removeEducation}
+                edit={this.editExperience}
+                remove={this.removeExperience}
               />
             )}
           </div>
