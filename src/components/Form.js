@@ -17,7 +17,14 @@ export default class Form extends Component {
       address: "",
       phoneNumber: "",
       education: [],
+      updateEducation: {
+        name: "",
+        title: "",
+        start: "",
+        end: "",
+      },
       experience: [],
+      updateExperience: {},
       renderPersonal: false,
       renderEducation: false,
       renderExperience: false,
@@ -85,7 +92,15 @@ export default class Form extends Component {
     this.setState({ renderPersonal: false });
   }
   addEducation(data) {
-    this.setState({ education: this.state.education.concat(data) });
+    this.setState({
+      education: this.state.education.concat(data),
+      updateEducation: {
+        name: "",
+        title: "",
+        start: "",
+        end: "",
+      },
+    });
   }
   async saveEducation(e) {
     e.preventDefault();
@@ -100,7 +115,13 @@ export default class Form extends Component {
     e.preventDefault();
     this.setState({ renderEducation: false });
   }
-  editEducation() {}
+  editEducation(e) {
+    e.preventDefault();
+    const index = e.target.getAttribute("data-index");
+    const education = this.state.education[index];
+    this.removeEducation(e);
+    this.setState({ updateEducation: education, renderEducation: false });
+  }
   removeEducation(e) {
     e.preventDefault();
     const index = e.target.getAttribute("data-index");
@@ -158,7 +179,9 @@ export default class Form extends Component {
       experience,
       renderPersonal,
       renderEducation,
+      updateEducation,
       renderExperience,
+      updateExperience,
       errors,
     } = this.state;
     return (
@@ -189,7 +212,7 @@ export default class Form extends Component {
           <div className="flex-fill mb-2">
             {!renderEducation && (
               <EducationForm
-                education={education}
+                education={updateEducation}
                 addMore={this.addEducation}
                 handleClick={this.saveEducation}
               />
@@ -206,7 +229,7 @@ export default class Form extends Component {
           <div className="flex-fill">
             {!renderExperience && (
               <ExperienceForm
-                experience={experience}
+                experience={updateExperience}
                 addMore={this.addExperience}
                 handleClick={this.saveExperience}
               />
