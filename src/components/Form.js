@@ -24,7 +24,13 @@ export default class Form extends Component {
         end: "",
       },
       experience: [],
-      updateExperience: {},
+      updateExperience: {
+        name: "",
+        title: "",
+        desc: "",
+        start: "",
+        end: "",
+      },
       renderPersonal: false,
       renderEducation: false,
       renderExperience: false,
@@ -150,6 +156,10 @@ export default class Form extends Component {
   }
   editExperience(e) {
     e.preventDefault();
+    const index = e.target.getAttribute("data-index");
+    const experience = this.state.experience[index];
+    this.removeExperience(e);
+    this.setState({ updateExperience: experience, renderExperience: false });
   }
   removeExperience(e) {
     e.preventDefault();
